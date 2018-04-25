@@ -28,10 +28,10 @@ import { DatabaseProvider } from '../providers/database/database';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 
 //Google Map
-//import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from '@agm/core';
 
 //GeoLocation
-//import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 @NgModule({
@@ -49,12 +49,11 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     BrowserModule,
     HttpModule,
     IonicStorageModule.forRoot(),
-    IonicModule.forRoot(MyApp)
-    //,
-    //   AgmCoreModule.forRoot({
-    //     apiKey: "AIzaSyCgCP78arh0qyxLGqBV4G7-aBrCUp72bsc",
-    //     libraries: ["places"]
-    // })
+    IonicModule.forRoot(MyApp),
+      AgmCoreModule.forRoot({
+        apiKey: "AIzaSyCr3aqYoZtFhF2plKOogqDbm0uj6-VxHw0",
+        libraries: ["places"]
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,9 +72,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     SQLite,
     Toast,
     DatabaseProvider,
-    SQLitePorter
-    //,
-    //Geolocation
+    SQLitePorter,
+    Geolocation
   ]
 })
 export class AppModule { }
