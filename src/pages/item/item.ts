@@ -22,7 +22,7 @@ export class ItemPage {
   item = {};
   items: any = [];
   term: any;
-
+  marts: any = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -33,6 +33,7 @@ export class ItemPage {
     this.databaseprovider.getDatabaseState().subscribe(rdy => {
       if (rdy) {
         this.loadItems();
+        this.loadMarts();
       }
     })
   }
@@ -44,6 +45,14 @@ export class ItemPage {
 
     //this.toast.show("Items loaded susscefully", '2000', 'center').subscribe(toast => { console.log(toast); });
   }
+  loadMarts() {
+    this.databaseprovider.getAllMarts().then(data => {
+      this.marts = data;
+    });
+
+    //this.toast.show("Items loaded susscefully", '2000', 'center').subscribe(toast => { console.log(toast); });
+  }
+
 
   addItem() {
     this.openItemModal({});
@@ -71,9 +80,19 @@ export class ItemPage {
     this.items.splice(indexes.to, 0, element);
   }
 
-updateItem(item){
-  this.databaseprovider.addOrUpdateItem(item);
-}
+  updateItem(item) {
+    this.databaseprovider.addOrUpdateItem(item);
+  }
+
+  displayItemListByMartId(martId) {
+    if (martId === undefined || martId === null || martId === "all") {
+      this.loadItems();
+    } else {
+      this.databaseprovider.getItemsByMartId(martId).then(data => {
+        this.items = data;
+      });
+    }
+  }
 
 }
 

@@ -5,19 +5,31 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar color="danger">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>Item</ion-title>
+        </ion-col>
+        
+        <ion-col id="column">
 
-  <ion-navbar>
-    <ion-title>Item</ion-title>
+          <ion-item id="dropbox" color="danger" no-lines>
+            <ion-select #C interface="popover" (ionChange)="displayItemListByMartId(C.value)">
+              <ion-option value="all">All Mart</ion-option>
+              <ion-option *ngFor="let mart of marts; let i = index" value="{{mart.martId}}">{{mart.martName}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-
   <ion-searchbar [(ngModel)]="itemSearchInput"></ion-searchbar>
-
   <ion-fab bottom right edge>
-    <button ion-fab mini id="addItemButton" (click)="addItem()">
+    <button ion-fab id="addItemButton" (click)="addItem()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>

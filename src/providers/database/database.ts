@@ -124,6 +124,23 @@ export class DatabaseProvider {
     });
   }
 
+  getItemsByMartId(martId){
+    return this.database.executeSql("SELECT i.itemId, i.itemName, i.selectFlag FROM item i, itemMart im WHERE i.itemId = im.itemId AND im.martId = ?", [martId]).then((data) => {
+      let items = [];
+      if (data.rows.length > 0) {
+        for (var i = 0; i < data.rows.length; i++) {
+          items.push({ itemId: data.rows.item(i).itemId,
+            itemName: data.rows.item(i).itemName,
+            selectFlag: data.rows.item(i).selectFlag });
+        }
+      }
+      return items;
+    }, err => {
+      console.log('Error: ', err);
+      return [];
+    }); 
+  }
+
   getItemByName(itemName) {
     return this.database.executeSql("SELECT * FROM item WHERE itemName = ?", [itemName]).then((data) => {
       let item = {};
@@ -220,7 +237,6 @@ export class DatabaseProvider {
       return [];
     });
   }
-
 
   //Store DAO
   addStore(store) {

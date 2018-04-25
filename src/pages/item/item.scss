@@ -1,7 +1,12 @@
 page-item {
 
+    #dropbox{
+        width: 15em;
+        // margin-left: 5em;
+    }
 
-
+    #column{
+    }
 ion-input {
 	
 	
@@ -14,6 +19,10 @@ ion-input {
 
 #addItemButton{
       margin-bottom: 5em;
+}
+#addItemButton{
+    margin-bottom: 5em;
+    background-color: tomato;
 }
 
 #itemList{
@@ -37,6 +46,10 @@ height: 2em;
 width: 4em;
 font-size: 15px;
 margin-top: 4px;
+}
+
+#head{
+    color: white;
 }
 }
   
