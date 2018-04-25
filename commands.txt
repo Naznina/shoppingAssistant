@@ -21,3 +21,10 @@ ionic g page Mart
 ionic g page Store
 ionic g page ItemModal
 ionic g page StoreLocationModal
+
+<!-- SQL provider -->
+ionic g provider database
+
+<!-- SQLite Porter -->
+ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
+npm install --save @ionic-native/sqlite-porter @ionic-native/sqlite
