@@ -6,3 +6,7 @@ ionic start shoppingAssistant tabs
 
 //run on device
 ionic cordova run android --device
+
+//sqlite
+ionic cordova plugin add cordova-sqlite-storage
+npm install --save @ionic-native/sqlite
