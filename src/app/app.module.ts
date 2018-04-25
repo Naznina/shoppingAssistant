@@ -33,6 +33,9 @@ import { AgmCoreModule } from '@agm/core';
 //GeoLocation
 import { Geolocation } from '@ionic-native/geolocation';
 
+//LocalNotifications
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 @NgModule({
   declarations: [
@@ -73,7 +76,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     Toast,
     DatabaseProvider,
     SQLitePorter,
-    Geolocation
+    Geolocation,
+    LocalNotifications
   ]
 })
 export class AppModule { }

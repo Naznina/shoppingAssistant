@@ -46,4 +46,12 @@ ionic cordova platform add ios
 ionic cordova platform rm android
 ionic cordova platform add android
 
+//Local Push notogivation
+ionic cordova plugin add cordova-plugin-local-notification
+npm install --save @ionic-native/local-notifications
+
+//Set android ver for 6.3.0 to run local-notifications
+ionic cordova platform rm android
+ionic cordova platform add android@6.3.0
+
 
