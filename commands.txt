@@ -10,3 +10,7 @@ ionic cordova run android --device
 //sqlite
 ionic cordova plugin add cordova-sqlite-storage
 npm install --save @ionic-native/sqlite
+
+//toast
+ionic cordova plugin add cordova-plugin-x-toast
+npm install --save @ionic-native/toast
