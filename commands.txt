@@ -14,3 +14,10 @@ npm install --save @ionic-native/sqlite
 //toast
 ionic cordova plugin add cordova-plugin-x-toast
 npm install --save @ionic-native/toast
+
+//add new pages
+ionic g page Item
+ionic g page Mart
+ionic g page Store
+ionic g page ItemModal
+ionic g page StoreLocationModal
