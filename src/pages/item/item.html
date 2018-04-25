@@ -12,7 +12,38 @@
 
 </ion-header>
 
-
 <ion-content padding>
+
+  <ion-searchbar [(ngModel)]="itemSearchInput"></ion-searchbar>
+
+  <ion-fab bottom right edge>
+    <button ion-fab mini id="addItemButton" (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list id="itemList">
+    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-item-sliding *ngFor="let item of items | itemSearchPipe : itemSearchInput; let i = index">
+
+        <ion-item>
+          <ion-label>{{item.itemName}}</ion-label>
+          <ion-checkbox [(ngModel)]="item.itemId"></ion-checkbox>
+        </ion-item>
+
+        <ion-item-options>
+          <button ion-button expandable (click)="removeItem(item.itemId)" id="deleteItemButton">
+            <b>Delete</b>
+          </button>
+          <button ion-button expandable (click)="openItemModal(item)" id="editItemButton">
+            <b>Edit</b>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item-group>
+
+
+  </ion-list>
+
 
 </ion-content>
