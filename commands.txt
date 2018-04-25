@@ -1,0 +1,8 @@
+//Install Ionic
+npm install -g ionic
+
+//start new project
+ionic start shoppingAssistant tabs
+
+//run on device
+ionic cordova run android --device
