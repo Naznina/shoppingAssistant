@@ -39,7 +39,9 @@ npm install @agm/core --save
 npm install @types/googlemaps --save-dev
 
 <!-- GeoLocation -->
+ionic cordova plugin add cordova-plugin-geolocation
 npm install --save @ionic-native/geolocation
+
 <!-- platform -->
 ionic cordova platform rm ios
 ionic cordova platform add ios

@@ -36,6 +36,7 @@
     "cordova-ios": "4.5.4",
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.19",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
@@ -66,7 +67,8 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-x-toast": {},
       "uk.co.workingedge.cordova.plugin.sqliteporter": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-geolocation": {}
     },
     "platforms": [
       "ios",

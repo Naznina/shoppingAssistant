@@ -7,6 +7,7 @@ import { DatabaseProvider } from './../../providers/database/database';
 import { Toast } from '@ionic-native/toast';
 import { ViewController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 
 /**
  * Generated class for the StoreLocationModalPage page.
@@ -37,7 +38,9 @@ export class StoreLocationModalPage {
     private databaseprovider: DatabaseProvider,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    public geolocation: Geolocation,) {
+
       this.martId = navParams.get("martId");
       this.zoom = 4;
       this.latitude = 39.8282;
@@ -48,6 +51,7 @@ export class StoreLocationModalPage {
 
       //set current position
       this.setCurrentPosition();
+      // this.getLocation();
 
   }
 
@@ -62,6 +66,7 @@ export class StoreLocationModalPage {
 
     //set current position
     this.setCurrentPosition();
+    // this.getLocation();
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
@@ -96,9 +101,20 @@ export class StoreLocationModalPage {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 12;
+        alert( this.latitude +" : "+  this.longitude);
       });
     }
   }
+
+  // getLocation(){
+  //   this.geolocation.getCurrentPosition().then((res) => {
+  //     this.latitude = res.coords.latitude;
+  //     this.longitude = res.coords.longitude;
+  //     this.zoom = 12;
+  //   }).catch((error) => {
+  //   console.log('Error getting location', error);
+  //   });
+  // }
 
   private addStore(place){
     let store:{} = { storeName: place.name,
