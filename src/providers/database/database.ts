@@ -97,6 +97,7 @@ export class DatabaseProvider {
           console.log('Error: ', err);
         });
     } else {
+      item.selectFlag = 0;
       return this.database.executeSql('INSERT INTO item (itemName,selectFlag) VALUES(?,?)', [item.itemName, item.selectFlag]).then(data => {
         return data;
       },

@@ -6,6 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from './../../providers/database/database';
 import { Toast } from '@ionic-native/toast';
 import { ViewController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the StoreLocationModalPage page.
@@ -35,7 +36,8 @@ export class StoreLocationModalPage {
     private toast: Toast,
     private databaseprovider: DatabaseProvider,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) {
+    private ngZone: NgZone,
+    private alertCtrl: AlertController) {
       this.martId = navParams.get("martId");
       this.zoom = 4;
       this.latitude = 39.8282;
@@ -108,10 +110,32 @@ export class StoreLocationModalPage {
 
     this.databaseprovider.addStore(store).then(data => {
       // this.navCtrl.popToRoot();
-      this.navCtrl.pop();
+      this.presentConfirm();
+     
     });
 
-    
+  }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm store location',
+      message: 'Do you want to add this store?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            this.navCtrl.pop();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   // public closeModal() {

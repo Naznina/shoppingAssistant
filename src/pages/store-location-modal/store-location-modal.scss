@@ -1,9 +1,12 @@
 page-store-location-modal {
-    #map {
-		height: 100%;
+    #mapSize {
+        height: 100%;
+        margin-top: 1em;
     }
     
     #txtHome{
         margin-left: 15px;
+        border: 1px solid gray;
+        border-radius: 10px;
     }
 }

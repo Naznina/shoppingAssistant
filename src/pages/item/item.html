@@ -27,8 +27,8 @@
       <ion-item-sliding *ngFor="let item of items | itemSearchPipe : itemSearchInput; let i = index">
 
         <ion-item>
+          <ion-checkbox [(ngModel)]="item.selectFlag" (ionChange)="updateItem(item)"></ion-checkbox>
           <ion-label>{{item.itemName}}</ion-label>
-          <ion-checkbox [(ngModel)]="item.itemId"></ion-checkbox>
         </ion-item>
 
         <ion-item-options>

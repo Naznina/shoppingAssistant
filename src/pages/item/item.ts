@@ -71,7 +71,9 @@ export class ItemPage {
     this.items.splice(indexes.to, 0, element);
   }
 
-
+updateItem(item){
+  this.databaseprovider.addOrUpdateItem(item);
+}
 
 }
 
