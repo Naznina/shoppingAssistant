@@ -7,13 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Item Modal</ion-title>
-    <button ion-button (click)="closeModal()" id="itemModalCloseButton">
-      <b>Close</b>
-    </button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>Item Modal</ion-title>
+        </ion-col>
+        <ion-col>
+          <button ion-button (click)="closeModal()" id="itemModalCloseButton" color="danger">
+            <b>Close</b>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
-
-
 </ion-header>
 
 
